@@ -21,6 +21,6 @@ RSpec.feature "USer can create a new cateegory" do
     fill_in 'category[title]', with: category.title
     click_on "Create Category"
 
-    expect(flash[:notice]).to be_present
+    expect(page).to have_content("That category is already created.")
   end
 end
