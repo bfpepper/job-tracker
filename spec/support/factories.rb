@@ -1,5 +1,13 @@
 FactoryGirl.define do
 
+  sequence :title do |n|
+    "#{n} title"
+  end
+
+  factory :category do
+    title
+  end
+
   sequence :job_title do |n|
     "#{n} title"
   end
