@@ -6,13 +6,13 @@ RSpec.feature "User can delete a given job" do
   company = create(:company_with_jobs)
 
   visit company_jobs_path(company)
-save_and_open_page
+
   within("ul:first") do
     click_on("Delete")
   end
 
   expect(current_path).to eq(company_jobs_path(company))
-  expet(page).to_not have_content(job.first.name)
-  expet(page).to have_content(job.last.name)
+  expect(page).to_not have_content(company.jobs.first.title)
+  expect(page).to have_content(company.jobs.last.title)
   end
 end
