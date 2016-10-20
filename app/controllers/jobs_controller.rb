@@ -7,6 +7,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new()
+    @categories = Category.all
   end
 
   def create
@@ -23,6 +24,7 @@ class JobsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
   end
 
   def update
@@ -49,6 +51,6 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest)
+    params.require(:job).permit(:title, :description, :level_of_interest, :category_id)
   end
 end
