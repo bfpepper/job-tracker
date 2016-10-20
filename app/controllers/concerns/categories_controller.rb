@@ -17,6 +17,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to category_path(@category)
     else
+      flash[:notice] = "That category is already created."
       render :new
     end
   end
