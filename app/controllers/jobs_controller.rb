@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :find_company, only: [:index, :new, :create, :edit, :update, :destroy]
   before_action :find_job, only: [:show, :edit, :update, :destroy]
+
   def index
     @jobs = @company.jobs
   end
@@ -21,6 +22,7 @@ class JobsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   def edit
