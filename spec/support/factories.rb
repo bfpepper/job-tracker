@@ -37,4 +37,28 @@ FactoryGirl.define do
       jobs { create_list(:job, 3)}
     end
   end
+
+  sequence :first_name do |n|
+    "first #{n}"
+  end
+
+  sequence :last_name do |n|
+    "last #{n}"
+  end
+
+  sequence :position do |n|
+    "position #{n}"
+  end
+
+  sequence :email do |n|
+    "someone#{n}@example.com"
+  end
+
+  factory :contact do
+    first_name
+    last_name
+    position
+    email
+    company { create(:company)}
+  end
 end
