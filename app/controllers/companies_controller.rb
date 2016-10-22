@@ -1,7 +1,13 @@
 class CompaniesController < ApplicationController
   before_action :find_company, only: [:show, :edit, :update, :destroy]
   def index
-    @companies = Company.all
+    if params.include?("sort")
+      @companies = Company.all.ordered_list
+      render :sorted_index
+    else
+      @companies = Company.all
+      render :index
+    end
   end
 
   def new

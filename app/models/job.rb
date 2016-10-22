@@ -7,4 +7,8 @@ class Job < ActiveRecord::Base
   def ordered_comments
     comments.order(created_at: :desc)
   end
+
+  def self.sorted_jobs
+    order(level_of_interest: :desc)
+  end
 end

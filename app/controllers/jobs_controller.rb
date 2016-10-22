@@ -7,6 +7,11 @@ class JobsController < ApplicationController
     @contact = Contact.new
   end
 
+  def sorted
+    @jobs = Job.all.sorted_jobs
+    render :sorted_index
+  end
+
   def new
     @job = Job.new()
     @categories = Category.all
