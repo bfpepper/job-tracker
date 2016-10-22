@@ -7,3 +7,7 @@
     <%= link_to "Delete", company_path(company), method: "delete" %>
   </ul>
 <% end %>
+
+<% @companies.group_by(&:city).each do |city, companies| %>
+<%= city %> has <%= companies.count %> jobs.</br>
+<% end %>

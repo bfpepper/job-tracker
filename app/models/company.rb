@@ -7,4 +7,5 @@ class Company < ActiveRecord::Base
   def self.ordered_list
     order(:city)
   end
+
 end
