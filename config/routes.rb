@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :contacts, only: [:create, :destroy]
+  resources :contacts, only: [:create]
 
   get '/dashboard' => 'dashboard#show'
   get '/jobs' => 'jobs#sorted'
