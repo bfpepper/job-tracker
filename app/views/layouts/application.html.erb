@@ -2,15 +2,19 @@
 <html>
 <head>
   <title>JobTracker</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina|Raleway" rel="stylesheet">
 </head>
-<body>
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: name %>
-  <% end %>
-<%= yield %>
+  <body>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
+    <% end %>
 
-</body>
+    <div class="container-fluid">
+    <%= yield %>
+  </div>
+
+  </body>
 </html>
