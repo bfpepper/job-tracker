@@ -1,14 +1,29 @@
-<h3>All Companies</h3>
-
-<% @companies.each do |company| %>
+<div class="col-sm-6">
+  <h3>All Companies</h3>
+  <% @companies.each do |company| %>
   <ul class=company_<%= company.id %>>
+    <button type="button" class="btn btn-info">
     <%= link_to company.name, company_path(company) %> - <%= company.city %><br>
-    <%= link_to "Edit", edit_company_path(company) %>
-    <%= link_to "Delete", company_path(company), method: "delete" %>
-    <%= link_to "Create A New Job", new_company_job_path(company) %>
-  </ul>
-<% end %>
+    </button>
+    
+    <button type="button" class="btn btn-warning">
+      <%= link_to "Edit", edit_company_path(company) %>
+    </button>
 
-<% @companies.group_by(&:city).each do |city, companies| %>
-<%= city %> has <%= companies.count %> jobs.</br>
-<% end %>
+    <button type="button" class="btn btn-danger">
+      <%= link_to "Delete", company_path(company), method: "delete" %>
+    </button>
+
+    <button type="button" class="btn btn-success">
+      <%= link_to "Create A New Job", new_company_job_path(company) %>
+    </button>
+  </ul>
+  <% end %>
+</div>
+
+<div class="col-sm-6">
+  <h3>Jobs by City</h3>
+  <% @companies.group_by(&:city).each do |city, companies| %>
+  <%= link_to city, companies_path(location: city) %> has <%= companies.count %> jobs.</br>
+  <% end %>
+</div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'companies#index'
+
   resources :companies do
     resources :jobs
   end
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :contacts, only: [:create]
+  resources :contacts, only: [:create, :destroy]
 
   get '/dashboard' => 'dashboard#show'
   get '/jobs' => 'jobs#sorted'
