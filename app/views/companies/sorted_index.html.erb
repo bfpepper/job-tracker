@@ -1,0 +1,8 @@
+<h1>All Your Companies Sorted by Location</h1>
+
+<% @companies.each do |company| %>
+  <ul><h3><%= link_to company.name, company_path(company) %> - <%= company.city %><br></h3>
+    <% company.jobs.each do |job| %>
+      <li><%= job.title %></li>
+    <% end %></ul>
+  <% end %>

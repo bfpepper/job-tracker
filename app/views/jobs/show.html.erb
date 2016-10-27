@@ -8,3 +8,14 @@ Level of Interest: <%= @job.level_of_interest %>
 <br>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
+
+<%= form_for @comment do |f| %>
+<%= f.label :comment %>
+<%= f.text_area :content %>
+<%= hidden_field(:job, :id) %>
+<%= f.submit %>
+<% end %>
+
+<% @job.ordered_comments.each do |comment| %>
+  <%= comment.content %>
+<% end %>
